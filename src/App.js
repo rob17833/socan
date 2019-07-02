@@ -6,17 +6,25 @@ import FbLogin from './components/login/login';
 class App extends Component {
   constructor(props){
   super(props);
-    this.setState({
+    this.state=({
       isLogged: false
     });
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(data) {
+    this.setState({isLogged: data});
+  }//\end fct handleChange
+
+
+
 render() {
     return (
       <div>
         {sessionStorage.getItem('fbToken') ? (
           <div>Logged</div>
         ) : (
-          <FbLogin/>
+          <FbLogin onChange={this.handleChange}/>
         )}
       </div>
     );

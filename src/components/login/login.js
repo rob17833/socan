@@ -7,10 +7,7 @@ export default class FbLogin extends Component {
   handleResponse = (data) => {
     sessionStorage.setItem('fbToken', data.tokenDetail.accessToken);
     console.log(sessionStorage.getItem('fbToken'));
-
-    //props state isLogged: true to parent
-
-
+    this.props.onChange(true)//props state isLogged: true to parent
   }
 
   handleError = (error) => {
