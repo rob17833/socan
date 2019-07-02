@@ -5,8 +5,12 @@ import FbLogin from './components/login/login';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      {sessionStorage.getItem('fbToken') ? (
+        <div>Logged</div>
+      ) : (
         <FbLogin />
+      )}
     </div>
   );
 }
