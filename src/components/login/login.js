@@ -2,14 +2,15 @@ import React, { Component} from 'react';
 import { FacebookProvider, Login } from 'react-facebook';
 
 export default class FbLogin extends Component {
-  constructor(props) {
-    super(props);
-}//\end constructor
+
 
   handleResponse = (data) => {
     sessionStorage.setItem('fbToken', data.tokenDetail.accessToken);
-    console.log(sessionStorage.getItem('fbToken'))
-    //call with : var data = sessionStorage.getItem('fbToken');
+    console.log(sessionStorage.getItem('fbToken'));
+
+    //props state isLogged: true to parent
+
+
   }
 
   handleError = (error) => {
@@ -17,6 +18,8 @@ export default class FbLogin extends Component {
   }
 
   render() {
+
+
     return (
       <FacebookProvider appId="432650144242914">
         <Login
