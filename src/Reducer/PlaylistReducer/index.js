@@ -1,16 +1,14 @@
 const defaultState = {
-  playlist: {}
+  playlist: []
 }
 
 const playlistReducer = (state = defaultState, action) => {
+  console.log(action.payload)
   switch (action.type){
     case 'ADDPLAYLIST':
       return {
         ...state,
-        playlist : {
-          playlist_name: action.payload.playlist_name,
-          track: [action.payload.track1, action.payload.track2, action.payload.track3, action.payload.track4]
-        }
+        playlist : [...state.playlist, action.payload]
       }
     default:
       return state;

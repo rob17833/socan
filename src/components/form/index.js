@@ -1,10 +1,9 @@
 /* eslint-disable import/no-mutable-exports */
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import {
   Form, Button, FormGroup, Container, Row, Col,
 } from 'reactstrap';
-import InputField from './InputField';
 import { withRouter } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import {addPlaylist} from '../../Action';
@@ -39,65 +38,65 @@ class playlistForm extends React.Component {
 
 
   render(){
-
+    const {playlist_name, track1, track2, track3, track4} = this.state
     return (
       <Container>
         <Row>
           <Col xs={{ size: 8, offset: 2 }}>
             <Form onSubmit={this.handleRedirect}>
               <FormGroup>
-                <Field
+                <input
                   id="playlistName"
                   type="text"
                   name="playlist_name"
-                  component={InputField}
                   placeholder="playlist"
                   className="form-control"
                   onChange={this.onChange}
+                  value={playlist_name}
                 />
               </FormGroup>
               <FormGroup>
-                <Field
+                <input
                   id="track"
                   type="text"
                   name="track1"
-                  component={InputField}
                   placeholder="track"
                   className="form-control"
                   onChange={this.onChange}
+                  value={track1}
                 />
               </FormGroup>
               <FormGroup>
-                <Field
+                <input
                   id="track"
                   type="text"
                   name="track2"
-                  component={InputField}
                   placeholder="track"
                   className="form-control"
                   onChange={this.onChange}
+                  value={track2}
                 />
               </FormGroup>
               <FormGroup>
-                <Field
+                <input
                   id="track"
                   type="text"
                   name="track3"
-                  component={InputField}
                   placeholder="track"
                   className="form-control"
                   onChange={this.onChange}
+                  value={track3}
                 />
               </FormGroup>
               <FormGroup>
-                <Field
+                <input
                   id="track"
                   type="text"
                   name="track4"
-                  component={InputField}
                   placeholder="track"
                   className="form-control"
                   onChange={this.onChange}
+                  value={track4}
                 />
               </FormGroup>
               <Button color="primary" size="lg" active type="submit">Save</Button>
@@ -110,11 +109,6 @@ class playlistForm extends React.Component {
 }
 
 // validation des entrees:
-
-
-playlistForm = reduxForm({
-  form: 'playlist'
-})(playlistForm);
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({addPlaylist}, dispatch)

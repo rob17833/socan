@@ -8,6 +8,9 @@ import { connect } from 'react-redux';
 class Step2 extends React.Component {
     render() {
         console.log(this.props.playlist)
+        const playlistNames = this.props.playlist.map( elem => (
+            <option>{elem.playlist_name}</option>
+        ))
         return (
             <Container>
                 <Row>
@@ -16,8 +19,7 @@ class Step2 extends React.Component {
                             <FormGroup>
                                 <Label for="exampleSelectMulti">Select Playlist</Label>
                                 <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                                    <option>{this.props.playlist.playlist_name}</option>
-                
+                                    {playlistNames}
                                 </Input>
                             </FormGroup>
                             <Button to='step3' tag={NavLink}>Next</Button>
