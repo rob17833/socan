@@ -4,7 +4,7 @@ import './index.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addSelected } from '../../Action/index'
-import { bindActionCreators } from '../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import { bindActionCreators } from 'redux';
 
 
 class Step2 extends React.Component {

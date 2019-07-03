@@ -10,16 +10,16 @@ class Step3 extends React.Component {
     }
   }
   handleClick = () => {
-    const url = 'http://localhost:5000/playlist/92221047';
+    const url = 'http://localhost:5000/playlist/92221062';
     const config = {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
       },
-      body: {
+      body:  JSON.stringify({
         "playlist_name": "playlist1",
-        "tracks": ["chanson1", "chanson2"]
-      },
+        "tracks": ["chanson6", "chanson7"]
+      }),
   }
 
   fetch(url, config)
