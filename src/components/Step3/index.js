@@ -7,13 +7,14 @@ class Step3 extends React.Component {
     const url = ''
   }
     render(){
-      const {playlist_name, track} = this.props.data
-      const listTracks = track.map(item => <li>{item}</li>)
+      const {playlist_name, track1, track2} = this.props.data
+      console.log(this.props.data)
         return(
           <div>
             <p>{playlist_name}</p>
             <ul>
-              {listTracks}
+              <li>{track1}</li>
+              <li>{track2}</li>
             </ul>
             <Button onClick={this.handleClick} size="lg" color="secondary">Confirm</Button>
           </div>
@@ -21,9 +22,9 @@ class Step3 extends React.Component {
     }
 }
 
-const npq = (blabla) => ({
-  data: blabla.form.playlist
+const mapStateToProps = (state) => ({
+  data: state.form.playlist[0],
 })
 
 
-export default connect(npq) (Step3);
+export default connect(mapStateToProps)(Step3);
