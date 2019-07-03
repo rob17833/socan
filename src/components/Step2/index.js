@@ -2,10 +2,12 @@ import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Container, Row, Col } from 'reactstrap';
 import './index.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 class Step2 extends React.Component {
     render() {
+        console.log(this.props.playlist)
         return (
             <Container>
                 <Row>
@@ -14,16 +16,13 @@ class Step2 extends React.Component {
                             <FormGroup>
                                 <Label for="exampleSelectMulti">Select Playlist</Label>
                                 <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>{this.props.playlist.playlist_name}</option>
+                
                                 </Input>
                             </FormGroup>
                             <Button to='step3' tag={NavLink}>Next</Button>
                         </Form>
-                        <Button className="btn_createplaylist" outline size="lg" color="secondary"> + Create a playlist</Button>
+                        <Button className="btn_createplaylist" to="form" tag={NavLink} outline size="lg" color="secondary"> + Create a playlist</Button>
                     </Col>
                 </Row>
             </Container>
@@ -31,4 +30,8 @@ class Step2 extends React.Component {
     }
 }
 
-export default Step2;
+const mapStateToProps = state => ({
+    playlist: state.form.playlist
+})
+
+export default connect(mapStateToProps)(Step2);
